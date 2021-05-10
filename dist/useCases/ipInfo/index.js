@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ipInfoController = void 0;
+const axiosProvider_1 = require("../../providers/ipInfoProvider/implements/axiosProvider");
+const ipInfoController_1 = require("./ipInfoController");
+const ipInfoUseCase_1 = require("./ipInfoUseCase");
+const ipInfoProvider = new axiosProvider_1.AxiosProvider();
+const ipInfoUseCase = new ipInfoUseCase_1.IpInfoUseCase(ipInfoProvider);
+const ipInfoController = new ipInfoController_1.IpInfoController(ipInfoUseCase);
+exports.ipInfoController = ipInfoController;
