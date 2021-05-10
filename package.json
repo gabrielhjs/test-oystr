@@ -1,0 +1,12 @@
+{
+  "name": "test-oystr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gabrielhjs/test-oystr.git",
+  "author": "Gabriel Sá <gabrieljensensa@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "typescript": "^4.2.4"
+  }
+}
