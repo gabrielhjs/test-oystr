@@ -11,6 +11,6 @@ const HOST = "0.0.0.0"
 
 
 app.use(cors({ origin: process.env.APP_URL }))
-app.listen(PORT, HOST, () => {
+app.listen(PORT, HOST, function () {
 	`Express app listening on ${HOST}:${PORT}`
 })
