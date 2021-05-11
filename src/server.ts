@@ -8,4 +8,4 @@ dotenv.config()
 
 
 app.use(cors())
-app.listen(3333)
+app.listen(process.env.PORT)
