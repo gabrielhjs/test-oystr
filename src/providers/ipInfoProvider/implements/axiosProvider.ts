@@ -3,7 +3,7 @@ import request from "axios"
 
 
 export class AxiosProvider implements IGetIpConfigProvider {
-	async execute(url: string): Promise<any> {
-		return await request.get(url)
+	async execute(): Promise<any> {
+		return await request.get(`http://api.ipstack.com/check?access_key=${process.env.ACCESS_KEY}`)
 	}
 }

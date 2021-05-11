@@ -9,11 +9,9 @@ export class IpInfoUseCase implements IUseCase {
 	) { }
 
 	async execute(data: IDTO): Promise<IUseCaseResponse> {
-		const ipInfo = await this.getIpInfoProvider.execute(
-			`http://api.ipstack.com/check?access_key=${process.env.ACCESS_KEY}`
-		)
+		const ipInfo = await this.getIpInfoProvider.execute()
 
-		if (ipInfo.hasOwnProperty("data") && ipInfo.data.success) {
+		if (!ipInfo.data.error) {
 			if (ipInfo.data.hasOwnProperty("ip") && ipInfo.data.hasOwnProperty("city")) {
 				return {
 					data: `IP: ${ipInfo.data.ip} - CITY: ${ipInfo.data.city}`,
@@ -26,7 +24,7 @@ export class IpInfoUseCase implements IUseCase {
 		}
 
 		return {
-			error: ipInfo.data.error.info
+			error: ipInfo.data.error
 		}
 	}
 }

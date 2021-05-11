@@ -6,8 +6,8 @@ class IpInfoUseCase {
         this.getIpInfoProvider = getIpInfoProvider;
     }
     async execute(data) {
-        const ipInfo = await this.getIpInfoProvider.execute(`http://api.ipstack.com/check?access_key=${process.env.ACCESS_KEY}`);
-        if (ipInfo.hasOwnProperty("data")) {
+        const ipInfo = await this.getIpInfoProvider.execute();
+        if (!ipInfo.data.error) {
             if (ipInfo.data.hasOwnProperty("ip") && ipInfo.data.hasOwnProperty("city")) {
                 return {
                     data: `IP: ${ipInfo.data.ip} - CITY: ${ipInfo.data.city}`,
@@ -19,7 +19,7 @@ class IpInfoUseCase {
             };
         }
         return {
-            error: "Failed to request to ipstack"
+            error: ipInfo.data.error
         };
     }
 }

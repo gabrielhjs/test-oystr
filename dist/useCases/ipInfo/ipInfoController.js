@@ -14,7 +14,7 @@ class IpInfoController {
             return response.status(200).send(reponse.data);
         }
         catch (error) {
-            console.log(error.message);
+            console.log(`ERROR: ${error.message}`);
             return response.status(400).send({ error: "Unexpected Error." });
         }
     }

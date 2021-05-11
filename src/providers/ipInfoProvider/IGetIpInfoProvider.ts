@@ -1,5 +1,5 @@
 
 
 export interface IGetIpConfigProvider {
-	execute(url: string): Promise<any>
+	execute(): Promise<any>
 }
