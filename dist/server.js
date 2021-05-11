@@ -7,5 +7,9 @@ const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app_1 = require("./app");
 dotenv_1.default.config();
-app_1.app.use(cors_1.default());
-app_1.app.listen(3333);
+const PORT = parseInt(process.env.PORT || "3000");
+const HOST = "0.0.0.0";
+app_1.app.use(cors_1.default({ origin: process.env.APP_URL }));
+app_1.app.listen(PORT, HOST, function () {
+    `Express app listening on ${HOST}:${PORT}`;
+});
