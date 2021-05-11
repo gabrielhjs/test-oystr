@@ -8,4 +8,4 @@ dotenv.config()
 
 
 app.use(cors({ origin: process.env.APP_URL }))
-app.listen(parseInt(process.env.PORT || "8080"), process.env.HOST || "0.0.0.0")
+app.listen(3000, "0.0.0.0")
